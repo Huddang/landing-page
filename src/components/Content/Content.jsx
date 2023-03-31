@@ -1,38 +1,49 @@
 import { FaUser } from "react-icons/fa";
 import { BsFillCreditCardFill } from "react-icons/bs";
 import checkIcomMobile from "../../assets/mobile/checkpoint.svg";
+import { useSpring, animated } from "react-spring";
 const Content = () => {
+  const customer = useSpring({ customers: 12045, from: { customers: 0 } });
+  const card = useSpring({ cards: 12045, from: { cards: 0 } });
   return (
-    <section className="">
-      <div className="ml-[70px] mr-[54px] text-blod flex flex-col items-center bg-gradient-to-b shadow-mp from-white/40 rounded-[24px] to-transparent">
+    <section className="md:flex md:flex-row">
+      <div className="ml-[70px] mr-[54px] text-blod flex flex-col items-center bg-gradient-to-b shadow-mp from-white/40 rounded-[24px] to-transparent md:w-[20%]">
         <div className="mt-16 gap-8 flex items-start">
           <FaUser size={"22px"} className="mt-[12px]" />
-          <p className="text-26">
-            10245
-            <p className="text-13 font-semibold mb-[36px]"> Customers </p>
-          </p>
+          <div className="text-26">
+            <animated.div>
+              {customer.customers.to((val) => Math.floor(val))}
+            </animated.div>
+            <p className="text-13 font-semibold mb-[36px] md:text-16">
+              {" "}
+              Customers{" "}
+            </p>
+          </div>
         </div>
         <div className="gap-8 flex items-start mb-16">
           <BsFillCreditCardFill size={"22px"} className="mt-[12px]" />
-          <p className="text-26">
-            12045
-            <p className="text-13 font-semibold ">Cards Issued</p>
-          </p>
+          <div className="text-26">
+            <animated.div>
+              {card.cards.to((val) => Math.floor(val))}
+            </animated.div>
+
+            <p className="text-13 font-semibold md:text-16">Cards Issued</p>
+          </div>
         </div>
       </div>
-      <div className="text-13 flex flex-col w-[100%] mt-[90px] font-semibold">
-        <p className="check-content">
+      <div className="text-13 flex flex-col w-[100%] mt-[90px] font-semibold md:mt-0 md:w-[30%] md:text-16 md:ml-[20%]">
+        <div className="check-content">
           <img src={checkIcomMobile} alt="" />
           <p> Card report sent to your phone every weeks </p>
-        </p>
-        <p className="check-content">
+        </div>
+        <div className="check-content">
           <img src={checkIcomMobile} alt="" />
           <p> No external fees </p>
-        </p>
-        <p className="check-content">
+        </div>
+        <div className="check-content">
           <img src={checkIcomMobile} alt="" />
           <p> Set spending limits and restrictions </p>
-        </p>
+        </div>
       </div>
     </section>
   );
