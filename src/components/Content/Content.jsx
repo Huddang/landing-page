@@ -4,7 +4,7 @@ import checkIcomMobile from "../../assets/mobile/checkpoint.svg";
 const Content = () => {
   return (
     <section className="">
-      <div className="ml-[70px] mr-[54px] text-blod flex flex-col items-center bg-gradient-to-b shadow-md from-white/40 rounded-[24px] to-transparent">
+      <div className="ml-[70px] mr-[54px] text-blod flex flex-col items-center bg-gradient-to-b shadow-mp from-white/40 rounded-[24px] to-transparent">
         <div className="mt-16 gap-8 flex items-start">
           <FaUser size={"22px"} className="mt-[12px]" />
           <p className="text-26">
